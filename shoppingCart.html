@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-cmn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>购物车</title>
+    <!-- 新 Bootstrap4 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="index.html">商城</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="shoppingCart.html">购物车</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="搜索商品" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜索</button>
+                </form>
+            </div>
+        </nav>
+    </div>
+    <div class="container">
+        <div class="row mt-3 p-1">
+            <div class="col-md-2">
+                <span id="allProduct">全部商品<span class="badge badge-danger" name="totalQty" data-name="units">0</span></span>
+                
+            </div>
+            <div class="col-md-8"></div>
+            <div class="col-md-2">
+                <span>配送至：广西柳州市</span>
+            </div>
+        </div>
+        <div class="row bg-light mt-1 p-2 border">
+            <div class="col-md-1"> <input type="checkbox" checked="true" data-operator="selectAll"> 全选 </div>
+            <div class="col-md-4"> <span>商品</span> </div>
+            <div class="col-md-2"> <span>单价</span> </div>
+            <div class="col-md-2"> <span>数量</span> </div>
+            <div class="col-md-2"> <span>小计</span> </div>
+            <div class="col-md-1"> <span>操作</span> </div>
+        </div>
+    </div>
+    
+    <div class="container" id="cartList">
+        <div class="row mt-2 p-2 border d-none" id="orderExample">
+            <div class="col-md-5">
+                <input type="checkbox" data-operator="checkItem">
+                <img data-name="imgSrc" src="images/commodity_02.jpg" alt="" width="100px" height="100px">
+                <span data-name="title">商品1111111111</span>
+            </div>
+            <div class="col-md-2">
+                <span>¥</span>
+                <span data-name="unitPrice">298.00</span>
+            </div>
+            <div class="col-md-2">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary" data-operator="increase" id='increase'>+</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary " disabled='disabled' data-name="qty">0</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary" data-operator="decrease">-</button>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <span>¥</span>
+                <span data-name="subPrice">0.00</span>
+            </div>
+            <div class="col-md-1">
+                <a href="#" name="delA" data-toggle="modal" data-operator="deleteItem">删除</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row bg-light mt-1 p-2 border">
+            <div class="col-md-1"><input type="checkbox" checked="true" data-operator="selectAll"> 全选 </div>
+            <div class="col-md-3"> <a href="#" data-toggle="modal" data-operator="deleteSelected">删除选中的商品</a> </div>
+            <div class="col-md-3"> <a href="#" data-toggle="modal" data-operator="clearAll">清空购物车</a> </div>
+            <div class="col-md-2"> <span>选中商品数量：</span> <span data-name="selectedQty">0</span> </div>
+            <div class="col-md-2"> <span>总价:¥</span> <span data-name="selectedAmount">0</span> </div>
+            <div class="col-md-1"> <button type="button" class="btn btn-sm" name='decrease' data-operator="gotoPlay">结算</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">删除</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    是否要删除选中的商品？
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" name="delBtn">删除</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <script src="js/main2.js"></script> -->
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <!-- popper.min.js 用于弹窗、提示、下拉菜单 -->
+    <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+    <!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <script src="js/shoppingCart.js"></script>
+    <script src="js/cartList.js"></script>
+    
+</body>
+
+</html>

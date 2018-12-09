@@ -1,0 +1,26 @@
+[
+    {
+        "id":"02",
+        "titile":"鞋子",
+        "unitPrice":20,
+        "imgSrc":"commodity_02.jpg"
+    },
+    {
+        "id":"03",
+        "titile":"T恤",
+        "unitPrice":30,
+        "imgSrc":"commodity_03.jpg"
+    },
+    {
+        "id":"04",
+        "titile":"苹果",
+        "unitPrice":40,
+        "imgSrc":"commodity_04.jpg"
+    },
+    {
+        "id":"05",
+        "titile":"牛奶",
+        "unitPrice":50,
+        "imgSrc":"commodity_05.jpg"
+    }
+]

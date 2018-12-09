@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test</title>
+</head>
+
+<body>
+    <script src="js/shoppingCart.js"></script>
+    
+    <script>
+        // 创建购物车操作类对象
+        var cart = new ShoppingCart();
+        // 清空购物车（移除本地存储购物车项）
+        cart.clearShoppingCart();
+        
+        // 创建一个商品
+        var p = new Product('03', 'T恤', 54.00, 'images/commodity_03.jpg');
+        // 创建一个订单
+        var order = new Order(p, 1, true);
+        // 将订单置入购物车
+        cart.addToCart(order);
+
+        // 又创建2个商品
+        p = new Product('04', '苹果', 20.00, 'images/commodity_04.jpg');
+        // 又创建2个订单
+        order = new Order(p, 2, true);
+        // 将订单置入购物车
+        cart.addToCart(order);
+
+        // 又创建3个商品
+        p = new Product('05', '牛奶', 10.00, 'images/commodity_05.jpg');
+        // 又创建3个订单
+        order = new Order(p, 1, true);
+        // 将订单置入购物车
+        cart.addToCart(order);
+
+        // 购物车数据
+        var cartData = new CartData();
+
+        // console.log(cart.getDataFromLocalSatorge());
+        console.log(cart.getSelectedQty());
+        console.log(cart.getSelectedAmount());
+
+        // cart.setItemSelectStatus('04',false);
+        
+        console.log(cart.getSelectedQty());
+        console.log(cart.getSelectedAmount());
+
+        
+        // cart.deleteItem('03');
+        cart.AnOrderAddOrMinus("04",'+');
+        // cart.AnOrderAddOrMinus("05",'-');
+    </script>
+</body>
+
+</html>
